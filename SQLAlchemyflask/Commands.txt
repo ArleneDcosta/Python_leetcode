@@ -1,0 +1,84 @@
+>>> from app import db,Pet,Owner
+>>> db.create_all()
+>>> arlene = Owner(name = 'Arlene', address = '500 Greewood Pl')
+>>> db.session.add(arlene)
+>>> db.session.commit()
+>>> moti = Pet(name = 'Moti',age = 1,owner = arlene)
+>>> db.session.add(moti)
+>>> db.session.commit()
+>>> moti.owner
+<Owner 1>
+>>> moti.owner.name
+'Arlene'
+>>> arlene.pets[0]
+<Pet 1>
+>>> arlene.pets[0].name
+'Moti'
+>>> Owner.query.all()
+[<Owner 1>]
+>>> Owner.query.all()[0]
+<Owner 1>
+>>> owner = Owner.query.first()
+>>> owner.pets
+[<Pet 1>]
+>>> owner.pets[0].name
+'Moti'
+
+>>> from app import *
+>>> user1 = User(name='John')
+>>> user2 = User(name='Alice')
+>>> user1.friends.append(user2)
+>>> user1.friend_of.all()
+[]
+>>> user2.friend_of.all()
+[<User (transient 2635084061616)>]
+>>> user2.friend_of.all()[0].name
+'John'
+>>> friendship = Friendship(user_id=user1.id, friend_id=user2.id)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'Friendship' is not defined
+>>> db.create_all()
+
+>>> friendship = friendships.insert().values(user_id=user1.id, friend_id=user2.id)
+>>>
+>>> user3 = User(name = 'Arlene')
+>>> user4 = User(name = 'Sunny')
+>>> user3.friends.append(user4)
+>>> db.session.add(user3)
+>>> db.session.add(user4)
+>>> db.session.commit()
+>>> db.session.query(friendships).all()
+[(1, 2), (3, 4)]
+>>> user3 = User(name = 'Arlene')
+>>> user4 = User(name = 'Sunny')
+>>> user3.friends.append(user4)
+>>> db.session.add(user3)
+>>> db.session.add(user4)
+>>> db.session.commit()
+>>> db.session.query(friendships).all()
+[(1, 2), (3, 4)]
+>>> lulu = Pet(name = 'Lulu',age = 2)
+>>> arlene = Owner.query.filter_by(name = 'Arlene').first()
+>>> lulu.owner = arlene
+>>> arlene.pets
+[<Pet 1>]
+>>> db.session.add(lulu)
+>>> db.session.commit()
+>>> arlene.pets
+[<Pet 1>, <Pet 2>]
+>>> arlene.pets[1]
+<Pet 2>
+>>> arlene.pets[1].name
+'Lulu'
+>>> user3.friend_of.append(user4)
+>>> user5 = User(name = 'Coco')
+>>> user3.friend_of.append(user5)
+>>> db.session.add(user5)
+>>> db.session.commit()
+>>> user3.friends
+[<User 4>]
+>>> user5.friends
+[<User 3>]
+>>> db.session.query(friendships).all()
+[(1, 2), (3, 4), (4, 3), (5, 3)]

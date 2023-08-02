@@ -1,0 +1,52 @@
+Setting up Virtual env with python 
+
+pip list(Listing all packages essential for the project.)
+
+
+pip install virtualenv
+virtualenv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
+
+Password : aa744628
+
+
+In ETL_combined
+Databasename has been commented
+
+So all the (But the database names are commented) so the source tables of diff db's are created and Jobname is linked to those vertices 
+giving wrong outputs
+
+
+Jobname cannot be mapped to different 
+Change 1: Uncomment link in populate_combined
+1)ETL has oracle source tables
+2)In populate combined db linkage is commented so (oracle db is not linked to oracle source tables)
+So in case vertices of different databases are present and created it won't be linked
+3)So source tables are only linked to Jobnames
+4)Jobnames are linked to target tables 
+
+Change 2: Report add the changes for reports pointing to different target tables====DONE!
+
+Change 3 : Change SAS CSV JSon depending on the changes in input===Done!
+
+Change 4 : Default remove for SAS tables 
+
+Change 5 : Add Db type in populate_combined and populate_ETL
+
+Change 6: Report page remove ambiguous names 
+Righthand move
+
+Incoming : Removing all jobs writing different targets
+Keeping job writing particular report (Diffeent db's are considered through the code)
+---------------------------------------------------------------
+1)Dbtype has to be added everythere(get_rid_sas)
+
+
+
+
+exc_type, exc_obj, exc_tb = sys.exc_info()
+fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+print('-----------------Error----------')
+print(exc_type, fname, exc_tb.tb_lineno)
+print(e)

@@ -1,0 +1,31 @@
+How to check impossible board?
+
+Each row in the board must either equal to the first row or equal to the reverse of the first row.
+The same apply to column, but you don't need to check column, because if all rows complies with this rule, all columns automatically 
+comply with this rule by themselves. Only need to check rows.
+Count of "1" in each row must equal to the count of "0", or at most differ by 1.
+Since rule #1 is already passed, you don't need to check every row this time. Checking only the 1st row is enough. But you need to 
+check both 1st row and 1st column in this case. Can't skip column this time
+When both #1 and #2 passed, it means the board can be tranformed to chessboard.
+
+How to count number of swaps to transform?
+Only need to count 1st row and 1st column. When the 1st row and 1st column becomes valid, the rest must be valid by themselves according to rule #1.
+
+Taking 1st row for example.
+
+We don't know whether the first cell should be "0" or "1". Assume it to be "0" first, then we know the expected values of all cells in 1st row.
+Count the difference against actual values. The number of swap should be diffCnt/2. If the diffCnt is an odd number, that means the first cell cannot be "0", we should choose "1" as the first cell.
+If both choosing "0" and choosing "1" makes even diffCount, then we choose the one with smallest number of swaps.
+Same applies to column.
+
+0 1 1 0 0
+0 1 1 1 0
+1 0 0 0 1
+1 0 0 1 0
+1 0 0 0 1
+
+1 0 1 0 0
+1 0 1 1 0
+0 1 0 0 1
+0 1 0 1 0
+0 1 0 0 1

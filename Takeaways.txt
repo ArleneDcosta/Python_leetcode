@@ -1,0 +1,21 @@
+Remember:
+
+
+If make 1 to 0 : use mask ^ (1 << i) or parity ^ 1 ( When flipping a bit)
+
+If to make 0 to 1 : use mask | ( 1 << i)
+
+Checking can be done using &
+
+
+SLiding windows can be used and optimized with hashes
+
+
+dp:
+
+Top down will make use of future values
+Bottom up will make use of preceding values
+
+If current values are getting added then for final values return 0
+
+else final value return 1

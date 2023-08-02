@@ -1,0 +1,190 @@
+Python Codility
+
+even word:
+shubham raj
+
+ res = {i : S.count(i) for i in set(S)} 
+    count=0
+    for i in res:
+	    if(res[i]%2!=0):
+		    count+=1
+    return count
+
+ANOTHER APPROACH
+
+import string
+def solution(S):
+    # write your code in Python 3.6
+    alphadic = dict.fromkeys(string.ascii_lowercase, 0)
+    for i in S:
+        if i in alphadic:
+            alphadic[i] += 1
+        else:
+            alphadic[i] = 1
+    ct = 0
+    for char in alphadic.keys():
+        if alphadic[char]%2 != 0:
+            ct += 1
+    return ct
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Even string 
+
+Prajwal :
+
+def solution(S):
+    M = {}
+    x = 0
+    for char in S:
+        if char in M.keys():
+            M[char] += 1
+        else:
+            M[char] = 1
+    
+    for value in M.values():
+        if value % 2 != 0:
+            x += 1
+    
+    return x
+
+Rajeshwar 
+
+def solution(S):
+    # write your code in Python 3.6
+    d = {}
+    for el in S:
+        if el in d:
+            d[el] += 1
+        else:
+            d[el] = 1
+    
+    ret = 0
+    for key in d.keys():
+        if d[key]%2 != 0:
+            ret += 1
+    
+    return ret
+
+
+============sudhanya 
+def solution(S):
+    count=0
+    res=0
+    d=[]
+    for i in S:
+        if i not in d:
+            d.append(i)
+            for n in range(0,len(S)):
+                if i == S[n]:
+                    count+=1
+        if count%2 !=0:
+            res+=1
+        count=0
+    return res
+
+============================================================
+#Lokesh
+def solution(S):
+    # write your code in Python 3.6
+    letter = [0]*26
+    ct=0
+    for i in S:
+        letter[ord(i)-97]+=1
+    for x in letter:
+        if x%2!=0:
+            ct+=1
+    return ct
+
+
+
+
+
+
+====================================================================================================================================
+
+smallest string 
+
+===============kritika
+def solution(S):
+    # write your code in Python 3.6
+    l = len(S)
+    final = ""
+    
+    for i in range (l-1):
+        
+        if(S[i] > S[i+1]):
+            
+            for k in range (l):
+                if (i != k):
+                    final += S[k]
+                    
+            return final
+            
+    final = S[0: l-1]
+    return final
+        
+    pass
+==============================
+
+##Smallest String -  Adith
+## Working - 100
+
+def solution(S):
+    for i in range(len(S)-1):
+        if S[i] > S[i+1]:
+	        return S[:i] + S[i+1:]
+            
+    return S[:len(S)-1]
+
+====================
+
+
+
+===========================================================================================================================
+Balanced 
+
+def solution(s):
+	for l in range(2, len(s)+1):
+		for i in range(0,len(s)):
+			if i+l > len(s): break
+
+			ca = [0]*26
+			sm = [0]*26
+			for j in range(i,i+l):
+				if s[j] >= 'a' and s[j] <= 'z':
+					sm[ord(s[j]) - ord('a')] = 1
+				else:
+					ca[ord(s[j]) - ord('A')] = 1
+
+			next = False
+			for k in range(26):
+				if ca[k] != sm[k]:
+					next = True
+					break 
+
+			if not next: return l
+
+	return -1
+#suryamani
+
+#CAP S
+
+def solution(S):
+    for x in range(2, len(S)+1):
+        for y in range(0,len(S)):
+            if y+x > len(S): break
+            st1 = [0]*26
+            st2 = [0]*26
+            for z in range(y,y+x):
+                if S[z] >= 'a' and S[z] <= 'z':
+                    st2[ord(S[z]) - ord('a')] = 1
+                else:
+                    st1[ord(S[z]) - ord('A')] = 1
+                next = False
+                for i in range(26):
+                    if st1[i] != st2[i]:
+                        next = True
+                        break
+                if not next: return x
+    return -1
+
+
