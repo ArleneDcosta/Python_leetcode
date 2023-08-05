@@ -1,6 +1,7 @@
 #Dijikstra find shortest path from one node[src] to all nodes with weighted paths[ Works for both directed and non-directed].
 
 # Here when we get better path we need to reset the algorithm
+#Utilisez PQ
 import sys
 from typing import List
 from collections import defaultdict
@@ -21,10 +22,10 @@ def countPaths(n: int, roads: List[List[int]]) -> int:
     ways[0] = 1
     pq = [(0,0)] #base case
     while pq:
-        print(pq)
+        print(pq,times,ways)
         #Removal of min node
         #If u dont add min value then the cycle will unnecessarily increase as the same node will be added in the queue
-        old_t,u = heappop(pq)
+        old_t,u = heappop(pq) # deletemin
         for v,t in graph[u]:
             new_t = old_t + t
 

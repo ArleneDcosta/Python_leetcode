@@ -48,7 +48,7 @@ class Solution:
                                 self.baseamount = oldprofit
                         if self.company[ele][0][1] < minval[ele]:
                             minval[ele] = self.company[ele][0][1]
-                            profdiff[ele] = [0, self.baseamount]
+                            profdiff[ele] = [profdiff[ele][0], self.baseamount]
                     self.company[ele].pop(0)
                 else:
                     continue
