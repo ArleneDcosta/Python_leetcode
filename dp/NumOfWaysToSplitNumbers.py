@@ -40,7 +40,8 @@ def numOfCombinations(num):
                 elif num[j-l:j] <= num[j:i+1]: #equal
                     maxL2 = l
                 else:
-                    #25423
+                    #25423 since 23 is smaller than 54 when 254 was supposed (ends with 2 size 2 = 54)to be considered here 25(
+                    # ends with 2 size 1) is getting considered here 4 2,5 then 4
                     maxL2 = l - 1
                 #Not optimized
                 # for l2 in range(1,maxL2+1):
@@ -48,6 +49,9 @@ def numOfCombinations(num):
 
                 #dp[i][l] = preSum[j-1][maxL2]
                 curr = preSum[j - 1][maxL2]
+            #Same position ending at i but of smaller length
+            #This step was previously not needed because you were summing the entire row, but now u are adding and keeping
+            #Below step is not useful for current the for loop represents curr, for future use the preSum i l-1 comes in handy
             preSum[i][l] = preSum[i][l-1] + curr
     mod = 10**9 + 7
 
@@ -55,5 +59,5 @@ def numOfCombinations(num):
     print(preSum)
     return preSum[n-1][n] % mod
 
-
-print(numOfCombinations("0123"))
+if __name__ == '__main__':
+    print(numOfCombinations("2542"))

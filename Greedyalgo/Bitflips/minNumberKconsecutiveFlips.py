@@ -32,5 +32,6 @@ def minKBitFlipsbf(nums: List[int], k: int) -> int:
 
 
 if __name__ == '__main__':
-    print(minKBitFlips([0,0,0,1,0,1,1,0],3))
-    print(minKBitFlips([1,1,0],2))
+    # print(minKBitFlips([0,0,0,1,0,1,1,0],3))
+    # print(minKBitFlips([1,1,0],2))
+    print(minKBitFlips([0,1,0,1],4))

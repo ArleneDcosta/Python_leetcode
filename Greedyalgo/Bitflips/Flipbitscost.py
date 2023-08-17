@@ -1,4 +1,5 @@
-#same as minNumerKconsecutiveFlips except k is length of full string
+#same as minNumerKconsecutiveFlips except k is full string[not predefined all characters after curr string]
+#Only diff is i+k < n : that is an additional req in the minNumberK problem
 def flipbits(l):
     cost = 0
     for b in l:
@@ -12,5 +13,5 @@ def flipbits(l):
 
 #Other testcase, here k is by default
 if __name__ == '__main__':
-    print(flipbits([0,1,0]))
+    print(flipbits([0,1,0,1]))
     print(flipbits([1,1,0]))
