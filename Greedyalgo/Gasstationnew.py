@@ -2,7 +2,7 @@ def canCompleteCircuit(A,B):
     n = len(A)
     curr = start = 0
     for i,(g,c) in enumerate(zip(A*2,B*2)):
-        #print(i,(g,c))
+        print(i,(g,c),start,curr,n)
         if i == start + n:
             return start
 
