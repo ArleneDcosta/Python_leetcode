@@ -1,6 +1,7 @@
 from typing import List
 from collections import defaultdict
 
+#All the letters should be contained between 2 letters and not half inside and half outside
 def maxNumOfSubstrings(s: str) -> List[str]:
     letter_range = defaultdict(list)
 

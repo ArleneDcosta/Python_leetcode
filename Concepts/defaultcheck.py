@@ -22,3 +22,10 @@ v['B']['orange'] += 4
 print(v)
 k = defaultdict()
 print(k)
+
+#enumerate should not be used when want to modify the list
+'''
+for i,l in enumerate(l):
+    l[j] = val
+    val will remain the same
+'''
