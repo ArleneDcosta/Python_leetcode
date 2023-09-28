@@ -1,5 +1,5 @@
 from typing import List
-
+#Almost similiar to maxdisjoint intervals
 def findMinArrowShots( points: List[List[int]]) -> int:
     if not points:
         return 0
