@@ -5,20 +5,20 @@ def mincostTicketstd(days: List[int], costs: List[int]) -> int:
     def dp(i):
         if i in memo:
             return memo[i]
-        if i > days[-1]:
+        if i > days[-1] or i <= 0:
             return 0
         ans = sys.maxsize
         if i not in days_set:
-            ans = dp(i+1)
+            ans = dp(i - 1)
         else:
-            ans = min(dp(i+1) + costs[0],dp(i+7) + costs[1],dp(i+30) + costs[2] )
+            ans = min(dp(i - 1) + costs[0],dp(i - 7) + costs[1],dp(i - 30) + costs[2] )
         memo[i] = ans
         return ans
 
     memo = {}
     days_set = set(days)
 
-    return dp(1)
+    return dp(days[-1])
 
 def mincostTicketsbu(days: List[int], costs: List[int]) -> int:
     dp = [sys.maxsize] * (days[-1] + 1)
@@ -34,5 +34,5 @@ def mincostTicketsbu(days: List[int], costs: List[int]) -> int:
 
 
 if __name__ == '__main__':
-    print(mincostTicketsbu([1,4,6,7,8,20],[2,7,15]))
+    print(mincostTicketstd([1,4,6,7,8,20],[2,7,15]))
     #days = [1,2,3,4,5,6,7,8,9,10,30,31], costs = [2,7,15]
