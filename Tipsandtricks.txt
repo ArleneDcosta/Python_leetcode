@@ -1,1 +1,19 @@
 - When the input parameters is very great, and you have to try dp always go for BFS.
+
+
+Characteristics of a BFS problem:
+a) Whenever minimum is mentioned, always go for BFS
+b) There will always be states present refer MinnodaystoeatNOranges.py in graph
+
+
+DFS is trying all possible paths
+Recursive method
+For DFS , it will be an directed Graph while for BFS, it will be a undirected Graph
+ALso in the question it will be mentioned to find the total different paths
+
+# Top down dp template
+    def dp(n):
+        if n in memo:
+            return memo[n]
+    memo = {}
+    return dp(n)
