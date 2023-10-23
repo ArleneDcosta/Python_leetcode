@@ -32,7 +32,7 @@ def mincostTicketsbu(days: List[int], costs: List[int]) -> int:
 
     return dp[days[-1] ]
 
-
+#https://leetcode.com/problems/minimum-cost-for-tickets/description/
 if __name__ == '__main__':
     print(mincostTicketstd([1,4,6,7,8,20],[2,7,15]))
     #days = [1,2,3,4,5,6,7,8,9,10,30,31], costs = [2,7,15]
