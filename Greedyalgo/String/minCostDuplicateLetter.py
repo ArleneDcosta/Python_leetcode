@@ -15,4 +15,4 @@ def minCost(s:str,cost:List[int]) -> int:
     return ans
 
 if __name__ == '__main__':
-    print(minCost("abaac",[1,2,3,4,5]))
+    print("Final is ",minCost("abaac",[1,2,3,4,5]))

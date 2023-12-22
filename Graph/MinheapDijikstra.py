@@ -5,7 +5,6 @@
 from collections import defaultdict
 import sys
 
-
 class Heap():
 
 	def __init__(self):
@@ -34,13 +33,10 @@ class Heap():
 		right = 2*idx + 2
 
 		if (left < self.size and
-		self.array[left][1]
-			< self.array[smallest][1]):
+		self.array[left][1] < self.array[smallest][1]):
 			smallest = left
 
-		if (right < self.size and
-		self.array[right][1]
-			< self.array[smallest][1]):
+		if (right < self.size and self.array[right][1] < self.array[smallest][1]):
 			smallest = right
 
 		# The nodes to be swapped in min
@@ -77,6 +73,7 @@ class Heap():
 
 		# Reduce heap size and heapify root
 		self.size -= 1
+		# from start till the end
 		self.minHeapify(0)
 
 		return root
@@ -95,8 +92,7 @@ class Heap():
 
 		# Travel up while the complete tree is
 		# not heapified. This is a O(Logn) loop
-		while (i > 0 and self.array[i][1] <
-				self.array[(i - 1) // 2][1]):
+		while (i > 0 and self.array[i][1] < self.array[(i - 1) // 2][1]):
 
 			# Swap this node with its parent
 			self.pos[ self.array[i][0] ] = (i-1)//2
@@ -104,7 +100,8 @@ class Heap():
 			self.swapMinHeapNode(i, (i - 1)//2 )
 
 			# move to parent index
-			i = (i - 1) // 2;
+			i = (i - 1) // 2
+
 
 	# A utility function to check if a given
 	# vertex 'v' is in min heap or not
@@ -155,13 +152,15 @@ class Graph():
 		# minHeap represents set E
 		minHeap = Heap()
 
-		# Initialize min heap with all vertices.
+		# Initialize min heap array with all vertices.
 		# dist value of all vertices
 		for v in range(V):
 			dist.append(1e7)
 			#return [v,dist(v)]
 			minHeap.array.append( minHeap.newMinHeapNode(v, dist[v]))
 			minHeap.pos.append(v)
+		print("Checking",minHeap.array)
+		print("")
 
 		# Make dist value of src vertex as 0 so
 		# that it is extracted first
@@ -171,7 +170,7 @@ class Graph():
 		minHeap.decreaseKey(src, dist[src])
 
 		# Initially size of min heap is equal to V
-		minHeap.size = V;
+		minHeap.size = V
 
 		# In the following loop,
 		# min heap contains all nodes
@@ -201,27 +200,30 @@ class Graph():
 
 						# update distance value
 						# in min heap also
+						# used because only current node and parent node will need comparison
 						minHeap.decreaseKey(v, dist[v])
 
 		printArr(dist,V)
 
 
 # Driver program to test the above functions
-graph = Graph(9)
-graph.addEdge(0, 1, 4)
-graph.addEdge(0, 7, 8)
-graph.addEdge(1, 2, 8)
-graph.addEdge(1, 7, 11)
-graph.addEdge(2, 3, 7)
-graph.addEdge(2, 8, 2)
-graph.addEdge(2, 5, 4)
-graph.addEdge(3, 4, 9)
-graph.addEdge(3, 5, 14)
-graph.addEdge(4, 5, 10)
-graph.addEdge(5, 6, 2)
-graph.addEdge(6, 7, 1)
-graph.addEdge(6, 8, 6)
-graph.addEdge(7, 8, 7)
-graph.dijkstra(0)
+if __name__ == '__main__':
+	graph = Graph(9)
+	graph.addEdge(0, 1, 4)
+	graph.addEdge(0, 7, 8)
+	graph.addEdge(1, 2, 8)
+	graph.addEdge(1, 7, 11)
+	graph.addEdge(2, 3, 7)
+	graph.addEdge(2, 8, 2)
+	graph.addEdge(2, 5, 4)
+	graph.addEdge(3, 4, 9)
+	graph.addEdge(3, 5, 14)
+	graph.addEdge(4, 5, 10)
+	graph.addEdge(5, 6, 2)
+	graph.addEdge(6, 7, 1)
+	graph.addEdge(6, 8, 6)
+	graph.addEdge(7, 8, 7)
+	print(graph)
+	graph.dijkstra(0)
 
 # This code is contributed by Divyanshu Mehta

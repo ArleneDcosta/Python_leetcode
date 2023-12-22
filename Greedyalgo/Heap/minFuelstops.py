@@ -9,12 +9,13 @@ def minRefuelStops(target: int, startFuel: int, stations: List[List[int]]) -> in
     cur = startFuel
     while cur < target:
         while i < n and stations[i][0] <= cur:
+            #Indicate max value(normally minheap)
             heappush(pq,- stations[i][1])
             i+=1
         print(pq)
         if not pq:
             return -1
-
+        # Indicate pushing of minheap negation indicate max value pop
         cur += - heappop(pq)
         ans +=1
 

@@ -28,9 +28,9 @@ def splitArray(nums : List[int],k : int) -> int :
         #Find the minimal largest sum hence pick small value
         print(left,right,mid,cuts_count)
         if cuts_count <= k :
-            # if count is more than the sum value should be increased
             right = mid
         else:
+            # if count is more than the sum value should be increased
             left = mid + 1
 
     return left

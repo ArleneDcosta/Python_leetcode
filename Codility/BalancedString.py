@@ -18,7 +18,7 @@ def solve(w):
         return -1
     return m
 
-print solve("azABaabza")
-print solve("TacoCat")
-print solve("AcZCbaBz")
-print solve("abcdefghijklmnopqrstuvwxyz")
+print(solve("azABaabza"))
+print(solve("TacoCat"))
+print(solve("AcZCbaBz"))
+print(solve("abcdefghijklmnopqrstuvwxyz"))

@@ -1,5 +1,5 @@
 from typing import List
-
+#similiar to MST
 class DSU:
     def __init__(self,n):
         self.parents = list(range(n))
@@ -18,6 +18,7 @@ class DSU:
         r2 = self.find(y)
         print("Inside union", r1,r2)
         if r1 != r2:
+            # U are drawing an edge
             self.parents[r2] = r1
             print("checking update",self.parents)
             self.edges += 1
@@ -29,7 +30,7 @@ class DSU:
 
 def maxNumEdgesToRemove(n: int, edges: List[List[int]]) -> int:
     alice = DSU(n+1) # Convert to 1 based system
-    bob =  DSU(n+1)
+    bob = DSU(n+1)
     ans = 0
     for t,u,v in edges:
         if t == 3:
