@@ -39,11 +39,19 @@ def minCostConnectPoints(points: List[List[int]]) -> int:
     print(paths)
     ans = 0
     for dist,p1,p2 in paths:
-        print(p1,p2,parents)
         if union(p1,p2):
             ans += dist
+        print(p1, p2, parents)
     return ans
     #Check if there is aldready an edge preexisting
     #
 if __name__ == '__main__':
     print(minCostConnectPoints([[0,0],[2,2],[3,10],[5,2],[7,0]]))
+
+'''You are given an array points representing integer coordinates of some points on a 2D-plane, where points[i] = [xi, yi].
+
+The cost of connecting two points [xi, yi] and [xj, yj] is the manhattan distance between them: |xi - xj| + |yi - yj|, where |val| denotes the absolute value of val.
+
+Return the minimum cost to make all points connected. All points are connected if there is exactly one simple path between any two points.'''
+
+#https://leetcode.com/problems/min-cost-to-connect-all-points/

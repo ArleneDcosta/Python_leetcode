@@ -42,6 +42,7 @@ def maxLengthRepeatedArray(nums1,nums2):
     while(l < r):
         mid =  l + (r - l + 1)//2
         print(mid)
+        #Biased towards right
         if helper(mid):
             l = mid
         else:

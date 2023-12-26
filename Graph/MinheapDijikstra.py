@@ -32,8 +32,7 @@ class Heap():
 		left = 2*idx + 1
 		right = 2*idx + 2
 
-		if (left < self.size and
-		self.array[left][1] < self.array[smallest][1]):
+		if (left < self.size and self.array[left][1] < self.array[smallest][1]):
 			smallest = left
 
 		if (right < self.size and self.array[right][1] < self.array[smallest][1]):
