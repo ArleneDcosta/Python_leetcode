@@ -11,6 +11,7 @@ def isTransformable(s: str, t: str) -> bool:
 
     for t_c in t:
         t_num = int(t_c)
+        #If not present in source
         if not indexes[t_num]:
             return False
         for smaller_num in range(t_num):
