@@ -30,8 +30,11 @@ def connectTwoGroups(cost: List[List[int]]) -> int:
     for j in range(size2):
         for i in range(size1):
             min_cost2[j] = min(min_cost2[j],cost[i][j])
+    print(min_cost2)
     return dp(0,0)
 
 if __name__ == '__main__':
     # Below example 2 in the if size1 loop and 1 in the below forloop and last one in the if size1 block
     print(connectTwoGroups(cost = [[1, 3, 5], [4, 1, 1], [1, 5, 3]]))
+
+'''[1,3,5] Connected from A to 1 2 and 3[4 1 1]  connected from B to 1 2 and 3 and '''

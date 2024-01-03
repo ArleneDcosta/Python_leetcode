@@ -7,7 +7,7 @@ def rotate(matrix):
     totalele = math.ceil((len(matrix) * len(matrix[0]))/ 2)
     finalrow = finalcol = 0
     count  = 0
-    while(k < last_row and l < last_col):
+    while(k <= last_row and l <= last_col):
         if count == totalele:
             break
         for i in range(k,last_row,2):
@@ -19,7 +19,7 @@ def rotate(matrix):
 
         if count == totalele:
             break
-
+        # Here + 1 because of two ahead
         for i in range(l+1 ,last_col,2):
             count+=1
             finalrow = last_row - 1
