@@ -23,7 +23,9 @@ helper
 '''
 # Time complexity =  O(n) or O(l) here as it is O(V + E)
 def minimumOneBitOperations(n: int) -> int:
+
     def dfs(bits) -> int:
+        # Min steps to convert n to 0
         if bits in memo_dfs:
             return memo_dfs[bits]
 
@@ -43,6 +45,7 @@ def minimumOneBitOperations(n: int) -> int:
         return ans
 
     def helper(bits) -> int:
+        # Min steps to convert n to 10000
         if bits in memo_helper:
             return memo_helper[bits]
 
@@ -66,10 +69,30 @@ def minimumOneBitOperations(n: int) -> int:
     bits = bin(n)[2:]
     return dfs(bits)
 
-
+def minimumOneBitOperationsnew(n: int) -> int:
+    # ans  = []
+    # for i in range( 1 << n):
+    #     ans.append(i ^ ( i >> 1))
+    ans = 0
+    bits =  bin(n)[2:]
+    print(bits)
+    last_bit = 0
+    # Remember the result bit has to be 0
+    # According to the above logic of 010 ^ 001 ( graycode logic) to calculate i
+    # abcdrf and other will 0abcdr
+    for i,bit in enumerate(bits):
+        bit = int(bit)
+        print(bit)
+        if bit == 1:
+            cur_bit = last_bit ^ 1
+        else:
+            cur_bit = last_bit
+        ans =  ( ans << 1) + cur_bit
+        last_bit = cur_bit
+    return ans
 
 if __name__ == '__main__':
-    print(minimumOneBitOperations(n=2))
+    print(minimumOneBitOperationsnew(n=2))
 
     '''The binary representation of 6 is "110".
 "110" -> "010" with the 2nd operation since the 1st bit is 1 and 0th through 0th bits are 0.
@@ -79,7 +102,8 @@ if __name__ == '__main__':
 
 '''Given an integer n, you must transform it into 0 using the following operations any number of times:
 
-Change the rightmost (0th) bit in the binary representation of n.
-Change the ith bit in the binary representation of n if the (i-1)th bit is set to 1 and the (i-2)th through 0th bits are set to 0.
+Step 1: Change the rightmost (0th) bit in the binary representation of n.
+Step 2: Change the ith bit in the binary representation of n if the (i-1)th bit is set to 1 and the (i-2)th through 0th bits are set to 0.
 Return the minimum number of opera
-110 = 010 = 011 = 001 == 000 '''
+110 = 010 = 011 = 001 == 000 
+10 = 11 = 01 = 00'''
