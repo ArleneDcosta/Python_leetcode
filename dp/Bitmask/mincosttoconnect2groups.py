@@ -15,6 +15,7 @@ def connectTwoGroups(cost: List[List[int]]) -> int:
             for j in range(size2):
                 if mask & (1 << j) == 0:
                     ans2 += min_cost2[j]
+
             return ans2
         ans = sys.maxsize
 
