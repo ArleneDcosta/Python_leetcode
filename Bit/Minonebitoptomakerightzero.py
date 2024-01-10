@@ -92,7 +92,7 @@ def minimumOneBitOperationsnew(n: int) -> int:
     return ans
 
 if __name__ == '__main__':
-    print(minimumOneBitOperationsnew(n=2))
+    print(minimumOneBitOperationsnew(n=6))
 
     '''The binary representation of 6 is "110".
 "110" -> "010" with the 2nd operation since the 1st bit is 1 and 0th through 0th bits are 0.
