@@ -78,7 +78,8 @@ def minimumOneBitOperationsnew(n: int) -> int:
     print(bits)
     last_bit = 0
     # Remember the result bit has to be 0
-    # According to the above logic of 010 ^ 001 ( graycode logic) to calculate i
+    # According to the above logic of 010[to find] ^ 001[presnt]=011[Given] ( graycode logic) to calculate i[1 ^ 0 = 1]
+    # Since 100 ^ 010 =  110
     # abcdrf and other will 0abcdr
     for i,bit in enumerate(bits):
         bit = int(bit)
