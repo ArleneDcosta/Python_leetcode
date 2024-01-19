@@ -16,6 +16,7 @@ def removeDuplicateLetters(s: str) -> str:
         count[c] -= 1
         if c in seen:
             continue
+        # If b in stack and a is incoming string
         while stack and c < stack[-1] and count[stack[-1]] > 0:
             removed = stack.pop()
             seen.remove(removed)

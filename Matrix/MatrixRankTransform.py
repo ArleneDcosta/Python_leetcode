@@ -29,9 +29,10 @@ def matrixRankTransform(matrix: List[List[int]]) -> List[List[int]]:
         print(val)
         parents = list(range(m+n))
         # Group numbers on the same row/col and get a unique value for later access (row + col) if present on the same row and col
+        # Same col will always be in the same group and if same row will be considered different group
         for i,j in value2Pos[val]:
-            print(i,j+n,val)
-            union(i,j+n)
+            print(i,j+m,val)
+            union(i,j+m)
         print(parents)
         root2Rank = defaultdict(int)
 
@@ -55,4 +56,5 @@ def matrixRankTransform(matrix: List[List[int]]) -> List[List[int]]:
 
 
 if __name__ == '__main__':
-    print(matrixRankTransform([[20,-21,14],[-19,4,19],[22,-47,24],[-19,4,19]]))
+    #print(matrixRankTransform([[20,-21,14],[-19,4,19],[22,-47,24],[-19,4,19]]))
+    print(matrixRankTransform([[20,-21,14],[-19,4,19],[22,-47,24],[-19,4,19],[1,2,3],[19,20,21]]))

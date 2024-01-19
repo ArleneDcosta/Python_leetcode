@@ -21,7 +21,8 @@ def minCostConnectPoints(points: List[List[int]]) -> int:
         r2 = find(y)
         if r1 != r2:
             #create an edge as there is no prexisting edge and ancestor for the nodes
-            parents[r2] = r1
+            #Below change also works
+            parents[r1] = r2
             return True
         else:
             #dont create an edge as there is a prexisting edge
