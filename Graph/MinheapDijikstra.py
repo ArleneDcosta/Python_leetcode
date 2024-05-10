@@ -173,7 +173,8 @@ class Graph():
 
 		# In the following loop,
 		# min heap contains all nodes
-		# whose shortest distance is not yet finalized.
+		# whose shortest distance is not
+		# yet finalized.
 		while minHeap.isEmpty() == False:
 
 			# Extract the vertex
