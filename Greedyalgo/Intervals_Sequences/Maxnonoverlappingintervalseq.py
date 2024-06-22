@@ -1,7 +1,5 @@
 # Python code for the above approach
 import heapq
-
-
 # The main function that returns the maximum
 # possible profit from given array of
 # intervals

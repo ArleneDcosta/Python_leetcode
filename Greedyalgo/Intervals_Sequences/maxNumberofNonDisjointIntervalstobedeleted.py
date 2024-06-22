@@ -10,7 +10,6 @@ def deleteIntervals( points: List[List[int]]) -> int:
     curr_end = -sys.maxsize
     for i in range(0,len(points)):
         if points[i][0] >= curr_end:
-
             curr_end = points[i][1]
         else:
             ans += 1
