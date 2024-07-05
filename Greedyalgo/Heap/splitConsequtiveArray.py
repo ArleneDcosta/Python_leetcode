@@ -1,7 +1,6 @@
 from typing import List
 from collections import Counter,defaultdict
 from heapq import heappop,heappush
-#Here bf will be calculating all possible subsets and then later checking for cond
 
 def isPossibleheap(nums: List[int]) -> bool:
     end = defaultdict(list)
@@ -22,10 +21,11 @@ def isPossibleheap(nums: List[int]) -> bool:
 def isPossible(nums: List[int]) -> bool:
     counter = Counter(nums)
     end = defaultdict(int)
-    print(counter,end)
+    # print(counter,end)
 
     for num in nums:
         if counter[num]:
+            # suppose 1,2,3, and now u are at 4 [4 and 5 have aldready been taken care of] so that 4 cab be a part of [1,2,3,4]
             if end[num - 1]:
                 end[num - 1]-= 1
                 end[num] += 1
@@ -37,11 +37,11 @@ def isPossible(nums: List[int]) -> bool:
                 counter[num] -= 1
             else:
                 return False
-        print(num,counter,end)
+        # print(num,counter,end)
     return True
 
 if __name__ == '__main__':
-    #print(isPossible([1,2,3,3,4,5]))
-    print(isPossibleheap([1,2,3,3,4,4,5,5]))
-    #print(isPossible([1,2,3,4,4,5]))
-    #print(isPossible([1,2,2,3,3,4,4,5]))
+    print(isPossible([1,2,3,3,4,5]))
+    # print(isPossible([1,2,3,3,4,4,5,5]))
+    # print(isPossible([1,2,3,4,4,5]))
+    # print(isPossible([1,2,2,3,3,4,4,5]))
