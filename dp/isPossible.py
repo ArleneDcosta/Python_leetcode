@@ -1,17 +1,18 @@
 from typing import List
 from math import gcd
 
-
 def solve(a, b, x, y):
     if gcd(x, y) == gcd(a, b):
         print("YES")
     else:
         print("NO")
     # Write your code here
+
 def isPossible(a:int,b:int,c:int,d:int,dp:List[List[int]]) -> int:
     print(a,b,c,d)
     if dp[a][b]!=-1:
         return dp[a][b]
+
     if a == c and b == d:
         dp[a][b] = 'Yes'
     elif a > c or b > d:
@@ -24,10 +25,8 @@ def isPossible(a:int,b:int,c:int,d:int,dp:List[List[int]]) -> int:
         if b < d:
             if isPossible(a,b+a,c,d,dp) == 'Yes':
                 dp[a][b] = 'Yes'
-    #print(dp[a][b])
+
     return dp[a][b]
-
-
 
 if __name__ == '__main__':
     a = 36

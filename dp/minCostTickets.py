@@ -2,7 +2,9 @@ from typing import List
 import sys
 
 def mincostTicketstd(days: List[int], costs: List[int]) -> int:
+    print(days)
     def dp(i):
+        print(i)
         if i in memo:
             return memo[i]
         if i > days[-1] or i <= 0:

@@ -5,8 +5,8 @@ def get_subsets(nums):
         #Cannot use bit manipulation because cannot represent [1,2,2] same number will become 0
         #Is not the same as sublist
         for j in range(i,n):
-            if j > i and nums[j] == nums[j-1]:
-                continue
+            # if j > i and nums[j] == nums[j-1]:
+            #     continue
 
             curNums.append(nums[j])
             print(j, curNums)

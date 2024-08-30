@@ -3,6 +3,7 @@ from functools import lru_cache
 
 def solve(matrixSize:int,row:int, col:int) :
     matrix = [[1] * matrixSize for _ in range(0,matrixSize)]
+
     @lru_cache(None)
     def dfs(totalSum,currSum,r,c):
 
@@ -25,6 +26,6 @@ def solve(matrixSize:int,row:int, col:int) :
 
     return(dfs(1000000,0,row,col))
 
-
+# Cannot pass a list to a function when lru_cache is used as a generator
 if __name__ == '__main__':
-    print(solve(4,2,2))
+    print(solve(2,0,0))
