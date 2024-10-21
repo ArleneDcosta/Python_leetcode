@@ -20,7 +20,6 @@ def bfs(visited, graph, node): #function for BFS
   while queue:          # Creating loop to visit each node
     m = queue.pop(0)
     print (m,visited[m])
-
     for neighbour in graph[m]:
       if visited[neighbour] == 100000000:
         visited[neighbour] = visited[m] + 1
@@ -29,5 +28,4 @@ def bfs(visited, graph, node): #function for BFS
 # Driver Code
 if __name__ == '__main__':
   print("Following is the Breadth-First Search")
-
   bfs(dist, graph, '5')    # function calling
