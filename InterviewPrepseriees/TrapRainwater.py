@@ -2,7 +2,7 @@ from typing import List
 
 #min(max(left),max(right)) - height
 
-def trap(height):
+def trapold(height):
     maxheightleft = []
     maxele = 0
     for no in height:
@@ -28,6 +28,29 @@ def trap(height):
     for i in range(len(height)):
         res += min(maxheightleft[i],maxheightright[i]) - height[i]
     return res
+
+def trap(height):
+    N = len(height)
+    left = 0
+    right = N - 1
+
+    left_max = 0
+    right_max = 0
+    waters = 0
+    while left < right:
+        if height[left] < height[right]:
+            if height[left] <= left_max:
+                waters += left_max - height[left]
+            else:
+                left_max = height[left]
+            left += 1
+        else:
+            if height[right] <= right_max:
+                waters += right_max - height[right]
+            else:
+                right_max = height[right]
+            right -= 1
+    return waters
 
 if __name__ == '__main__':
     print(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
