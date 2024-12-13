@@ -18,6 +18,8 @@ class Solution(object):
         return ret
 
 if __name__ == '__main__':
+
+    #243 is the no and 564 is another no
     obj = Solution()
     l1 = ListNode(3)
     l1.next = ListNode(4)
