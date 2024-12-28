@@ -1,10 +1,10 @@
 from typing import List
 
 class TreeNode(object):
-     def __init__(self, val=0, left=None, right=None):
-         self.val = val
-         self.left = left
-         self.right = right
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 def gettreeheight(root):
     if root is None:
@@ -29,7 +29,6 @@ def rightSideView(root):
     right = rightSideView(root.right)
     left = rightSideView(root.left)
     return [root.val] + right + left[len(right):]
-
 
 if __name__ == '__main__':
     leftr = TreeNode(5)
