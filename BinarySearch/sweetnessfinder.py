@@ -25,6 +25,7 @@ def findMaximalSweetness(sweetness : List[int],k : int) -> int :
         #Find maximum min sweetness hence
         if cuts_count >= k+1:
             #MAXIMAL SWEETNESS hence + 1 inclined towards right[above function] [MIN of all total SUM] = left
+            # Always check if 0 and 1 and mid is 1
             left = mid
         else:
             right = mid - 1

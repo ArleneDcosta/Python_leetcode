@@ -63,7 +63,7 @@ class Twitter:
             if followerId in self.followinglist[followeeId]:
                 self.followinglist[followeeId].remove(followerId)
 
-class Twitteroptimized:
+class Twitteroptimized: 
     def __init__(self):
         self.timer = itertools.count(step=-1)
         self.tweets = collections.defaultdict(collections.deque)
