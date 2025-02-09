@@ -29,33 +29,37 @@ def longestRepeatingSubstringbs(S):
         for i in range(length):
             h = h * 26 + nums[i]
         seen.add(h)
-        print(seen)
 
         for i in range(1, n-length + 1):
             h  = h * 26 - nums[i - 1] * 26 ** length + nums[i+length-1]
             if h in seen:
-                return True
+                return True,S[i:i+length]
 
             seen.add(h)
-        return False
+        return False,""
     
     nums = [ ord(c) - ord('a') for c in S]
     n = len(S)
     left = 0 
     right = n - 1 
+    finalstr = ""
     while(left < right):
         mid  = left + (right - left + 1)// 2
-        print(right,left,mid)
-        if findRepeatingSubstring(mid):
+        res,resstr = findRepeatingSubstring(mid)
+        if resstr != "":
+            finalstr = resstr
+        if res:
             left = mid
         else:
             right = mid - 1
 
-    return left 
-print(longestRepeatingSubstringbs("AreeAr"))
+    return finalstr
 
 '''
 0th:0 * 26 + 1 = 
 1st:(0*26 + 1)*26 = 0*26*26 + 26 + 2
 2nd: (26*26 + 26 + 2) = 0*26*26*26 + 26*26 + 2*26 + 3
 '''
+
+if __name__ == '__main__':
+    print(longestRepeatingSubstringbs("banana"))

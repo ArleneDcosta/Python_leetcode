@@ -23,7 +23,6 @@ def topKFrequentold(nums: List[int], k: int) -> List[int]:
         print(countlist)
         return res
 
-
 def topKFrequent(nums: List[int], k: int) -> List[int]:
     cnts = Counter(nums)
     heap = []

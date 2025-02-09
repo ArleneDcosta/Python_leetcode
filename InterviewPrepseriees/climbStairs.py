@@ -10,8 +10,6 @@ def climbstairs(n):
 
     return(dp[n])
 
-
-
 if __name__ == '__main__':
     print(climbstairs(3))
     print(climbstairs(4))
