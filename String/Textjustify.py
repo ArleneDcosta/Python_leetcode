@@ -17,6 +17,7 @@ def consume(line, left, w):
     even_pad = left // holes
     print(f"even_pad {even_pad}")
     left -= holes * even_pad
+    print(left)
     #the below + int)left > 0 is if there is uneven maxwidth
     for h in range(holes):
         line[1 + 2 * h] += ' ' * (even_pad + int(left > 0))
@@ -25,8 +26,6 @@ def consume(line, left, w):
     
     return 0, False
     
-
-
 def fullJustify(words, maxWidth):        
     lines = []
     ln = [words[0]]
