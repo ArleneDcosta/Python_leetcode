@@ -24,6 +24,7 @@ def trapold(height):
 
     maxheightright.reverse()
 
+    print(maxheightleft,maxheightright)
     res = 0
     for i in range(len(height)):
         res += min(maxheightleft[i],maxheightright[i]) - height[i]
@@ -53,6 +54,6 @@ def trap(height):
     return waters
 
 if __name__ == '__main__':
-    print(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
+    print(trapold([0,1,0,2,1,0,1,3,2,1,2,1]))
 
     #https://leetcode.com/problems/trapping-rain-water/solutions/5945524/efficient-two-pointer-solution-beats-99-84/ check this for better soln

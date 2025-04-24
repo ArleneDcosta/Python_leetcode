@@ -1,8 +1,6 @@
 
 from collections import Counter
 
-
-
 def minInsertions(s: str) -> int:
     n = len(s)
     dp = [[0] * (n + 1) for i in range(n + 1)]

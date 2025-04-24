@@ -23,3 +23,5 @@ def findPaths(m,n,maxMove,startRow,startColumn):
 
 
 print(findPaths(1,3,3,0,1))
+
+# Here all possible paths need to be found hence dfs
