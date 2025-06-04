@@ -10,7 +10,8 @@ def dijkstra(graph, start):
     while heap:
         current_distance, current_node = heapq.heappop(heap)
 
-        if current_node in visited:
+        if current_node in visited: # This is essentially needed if a shorter path was added afer the same node was longer 
+            # and present
             continue
         visited.add(current_node)
         

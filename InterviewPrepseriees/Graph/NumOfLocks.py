@@ -27,6 +27,8 @@ def openLock(deadends: List[str], target: str) -> int:
                     queue.append((new_combination, moves + 1))
     return -1
 
+
+
 if __name__ == '__main__':
     deadends = ["0201","0101","0102","1212","2002"]
     target = "0202"

@@ -3,8 +3,6 @@
 # Odds of being at one is 1/maxpoints (assume 10) = 0.1
 # Odds of being 2 aftre 0 is 1 * 0.1 = 0.1 and odds of being another 1 after 1 is 0.1 * 0.1 =  0.01 + 0.1 = 0.11
 
-
-
 def new21Game(n: int, k: int, maxPts: int) -> float:
     if k == 0 or n >= k + maxPts:
         return 1.0  # Special case: always wins
@@ -29,8 +27,6 @@ def new21Game(n: int, k: int, maxPts: int) -> float:
             windowSum -= dp[x - maxPts]
 
     return result
-
-
 
 
 if __name__ == '__main__':

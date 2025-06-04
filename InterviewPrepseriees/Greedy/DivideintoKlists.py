@@ -39,11 +39,11 @@ def isPossibleDivide(nums: List[int], k: int) -> bool:
 
     # return True
     c = Counter(nums)
-    print(c)
+    print(c, sorted(c))
     for i in sorted(c):
         if c[i] > 0:
             for j in range(k)[::-1]:
-                print(i,j,c[i+j],c[i])
+                print(i,j,i+j)
                 c[i + j] -= c[i]
                 if c[i + j] < 0:
                     return False
@@ -51,7 +51,7 @@ def isPossibleDivide(nums: List[int], k: int) -> bool:
 
 
 if __name__ == '__main__':
-    # print(isPossibleDivide(nums = [1,2,3,3,4,4,5,6], k = 4))
+    print(isPossibleDivide(nums = [1,2,3,3,4,4,5,6], k = 4))
     # print(isPossibleDivide(nums = [3,2,1,2,3,4,3,4,5,9,10,11], k = 3))
     # print(isPossibleDivide(nums = [16,21,26,35],k = 4))
-    print(isPossibleDivide(nums = [10,9,8,1,2,3,2,3,4,4,5,6,10,11,12], k = 3))
+    # print(isPossibleDivide(nums = [10,9,8,1,2,3,2,3,4,4,5,6,10,11,12], k = 3))
